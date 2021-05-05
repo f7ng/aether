@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = "github.com/f7ng/aether/protobuf";
+
 package protobuf;
 
 service Photo {

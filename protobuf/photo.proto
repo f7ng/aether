@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package protobuf;
+
+service Photo {
+  rpc GetPhoto (GetPhotoRequest) returns (GetPhotoReply) {}
+}
+
+message GetPhotoRequest {
+  string id = 1;
+}
+
+message GetPhotoReply {
+  string photo = 1;
+}

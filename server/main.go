@@ -10,18 +10,18 @@ import (
 )
 
 const (
-	port = "50051"
+	port = ":50051"
 )
 
 func main() {
 	listener, err := net.Listen("tcp", port)
 	if err != nil {
-		log.Fatalf("failed to listen on port: port=%v", port)
+		log.Fatalf("failed to listen on port: err=%v", err)
 	}
 
 	s := grpc.NewServer()
 	pb.RegisterUserServer(s, &userServer.Server{})
 	if err = s.Serve(listener); err != nil {
-		log.Fatalf("failed to serve on listener: listener=%v", listener)
+		log.Fatalf("failed to serve on listener: err=%v", err)
 	}
 }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/f7ng/aether/protobuf";
+
+package protobuf;
+
+service User {
+  rpc GetUser (GetUserRequest) returns (GetUserReply) {}
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserReply {
+  string name = 1;
+}

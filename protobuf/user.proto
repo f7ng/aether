@@ -6,12 +6,21 @@ package protobuf;
 
 service User {
   rpc GetUser (GetUserRequest) returns (GetUserReply) {}
+  rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {}
 }
 
 message GetUserRequest {
-  string id = 1;
+  int64 id = 1;
 }
 
 message GetUserReply {
   string name = 1;
+}
+
+message CreateUserRequest {
+  string name = 1;
+}
+
+message CreateUserReply {
+  int64 id = 1;
 }

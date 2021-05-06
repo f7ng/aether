@@ -4,6 +4,8 @@ import (
 	"log"
 	"net"
 
+	pb "github.com/f7ng/aether/protobuf"
+	userServer "github.com/f7ng/aether/server/user"
 	"google.golang.org/grpc"
 )
 
@@ -18,5 +20,8 @@ func main() {
 	}
 
 	s := grpc.NewServer()
-	
+	pb.RegisterUserServer(s, &userServer.Server{})
+	if err = s.Serve(listener); err != nil {
+		log.Fatalf("failed to serve on listener: listener=%v", listener)
+	}
 }
